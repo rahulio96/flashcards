@@ -1,0 +1,14 @@
+.flashcard-container {
+    width: 55vw;
+    height: 40vh;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    color: black;
+    cursor: pointer;
+    font-size: xx-large;
+}
