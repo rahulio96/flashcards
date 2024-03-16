@@ -1,5 +1,6 @@
 import './Flashcard.css'
 import { useState } from 'react'
+import Guess from '../guess/Guess'
 
 function Flashcard() {
 
@@ -27,7 +28,7 @@ function Flashcard() {
 
     const [index, setIndex] = useState(0);
     const [cardContent, setCardContent] = useState(questionAnswerList[0].q);
-/*
+
     function shuffle() { 
         const shuffled = [... questionAnswerList]
         for (let i = shuffled.length - 1; i > 0; i--) { 
@@ -39,7 +40,7 @@ function Flashcard() {
 
         setQuestionAnswerList(shuffled)
         setIndex(0)
-        setCardContent(questionAnswerList[0].q)
+        setCardContent(shuffled[0].q)
     }
 
     function nextCard() {
@@ -61,15 +62,7 @@ function Flashcard() {
             setCardContent(questionAnswerList[prev].q)
         }  
     }
-    */
-    function nextCard() {
-        let randNum = Math.floor(Math.random() * questionAnswerList.length);
-        while (randNum == index) {
-            randNum = Math.floor(Math.random() * questionAnswerList.length);
-        }
-        setIndex(randNum)
-        setCardContent(questionAnswerList[randNum].q)
-    }
+
 
     function flip() {
         if (cardContent == questionAnswerList[index].a) {
@@ -81,10 +74,14 @@ function Flashcard() {
  
     return (
         <>
-        <div onClick={flip} className='flashcard-container'>{cardContent}</div>
-        <button className='change-card'>←</button>
-        <button onClick={nextCard}className='change-card'>→</button>
-        {/*<button onClick={shuffle} className='change-card'>⟳</button>*/}
+            <div onClick={flip} className='flashcard-container'>{cardContent}</div>
+            
+            <button onClick={prevCard} className='change-card'>←</button>
+            <button onClick={shuffle} className='change-card'>⟳</button>
+            <button onClick={nextCard} className='change-card'>→</button>
+            <div className='interacts'>
+                <Guess answer = {questionAnswerList[index].a}/>
+            </div>
         </>
     )
 }
