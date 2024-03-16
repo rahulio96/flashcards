@@ -12,3 +12,8 @@
     cursor: pointer;
     font-size: xx-large;
 }
+
+.interacts {
+    margin-top: 10px;
+    background-color: #242424;
+}

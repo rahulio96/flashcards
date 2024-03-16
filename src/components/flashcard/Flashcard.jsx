@@ -75,10 +75,11 @@ function Flashcard() {
     return (
         <>
             <div onClick={flip} className='flashcard-container'>{cardContent}</div>
+            
             <button onClick={prevCard} className='change-card'>←</button>
-            <button onClick={nextCard} className='change-card'>→</button>
             <button onClick={shuffle} className='change-card'>⟳</button>
-            <div>
+            <button onClick={nextCard} className='change-card'>→</button>
+            <div className='interacts'>
                 <Guess answer = {questionAnswerList[index].a}/>
             </div>
         </>
