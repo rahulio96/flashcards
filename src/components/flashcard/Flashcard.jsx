@@ -1,5 +1,6 @@
 import './Flashcard.css'
 import { useState } from 'react'
+import Guess from '../guess/Guess'
 
 function Flashcard() {
 
@@ -73,10 +74,13 @@ function Flashcard() {
  
     return (
         <>
-        <div onClick={flip} className='flashcard-container'>{cardContent}</div>
-        <button onClick={prevCard} className='change-card'>←</button>
-        <button onClick={nextCard} className='change-card'>→</button>
-        <button onClick={shuffle} className='change-card'>⟳</button>
+            <div onClick={flip} className='flashcard-container'>{cardContent}</div>
+            <button onClick={prevCard} className='change-card'>←</button>
+            <button onClick={nextCard} className='change-card'>→</button>
+            <button onClick={shuffle} className='change-card'>⟳</button>
+            <div>
+                <Guess answer = {questionAnswerList[index].a}/>
+            </div>
         </>
     )
 }
