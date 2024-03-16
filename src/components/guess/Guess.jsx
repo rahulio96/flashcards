@@ -1,15 +1,16 @@
 import './Guess.css'
+import { useState } from 'react'
 
 function Guess( {answer}) {
 
+    const [inputClass, setInputClass] = useState("input-box");
+
     const checkAnswer = (e) => {
-        console.log(answer)
         e.preventDefault()
-        if (e.target.guess.value === answer) {
-            console.log("SUCCESS")
+        if (e.target.guess.value === answer.toLowerCase()) {
+            setInputClass("input-box correct")
         } else {
-            console.log("FAILURE")
-            console.log(e.target.guess.value)
+            setInputClass("input-box incorrect")
         }
         
     }
@@ -17,7 +18,7 @@ function Guess( {answer}) {
     return (
         <form onSubmit={checkAnswer}>
             <label htmlFor='guess'>Guess the answer here:</label>
-            <input className="input-box" type="text" id="guess" name="guess" placeholder={"Type your guess"}></input>
+            <input className={inputClass} type="text" id="guess" name="guess" placeholder={"Type your guess"}></input>
             <button type="submit">Check Answer</button>
             <p>Current streak: </p>
             <p>Longest strak: </p>

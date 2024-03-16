@@ -1,3 +1,11 @@
 .input-box {
     margin: 0px 20px 0px;
 }
+
+.correct {
+    border: 5px solid lime;
+}
+
+.incorrect {
+    border: 5px solid salmon;
+}
